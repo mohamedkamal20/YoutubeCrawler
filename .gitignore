@@ -114,7 +114,6 @@ env.bak/
 venv.bak/
 
 # images and videos
-Crawler/images
 Crawler/videos
 
 # Spyder project settings
