@@ -12,7 +12,7 @@ api_service_name = "youtube"
 api_version = "v3"
 
 
-def get_playlist_videos(playlist_id, playlist_name="playlist", channel_id=None):
+def get_playlist_videos(playlist_id, playlist_name="playlist", channel_id=None, download=False):
 
     os.environ["OAUTHLIB_INSECURE_TRANSPORT"] = "1"
 
@@ -41,14 +41,14 @@ def get_playlist_videos(playlist_id, playlist_name="playlist", channel_id=None):
             video_details_response = video_details_api.execute()
             videos_details.append(video_details_response)
 
-        seed_playlist_videos_to_db(videos_details, playlist_id, playlist_name, channel_id)
+        seed_playlist_videos_to_db(videos_details, playlist_id, playlist_name, channel_id, download)
 
         return videos_details
     except:
         return None
 
 
-def get_channel_videos(channel_id):
+def get_channel_videos(channel_id, download=False):
 
     os.environ["OAUTHLIB_INSECURE_TRANSPORT"] = "1"
 
@@ -73,7 +73,7 @@ def get_channel_videos(channel_id):
             playlist_id = playlist[u'id']
             playlist_name = playlist[u'snippet'][u'title']
 
-            playlist_result = get_playlist_videos(playlist_id, playlist_name, channel_id)
+            playlist_result = get_playlist_videos(playlist_id, playlist_name, channel_id, download)
             video_details.append(playlist_result)
 
         return video_details
