@@ -31,3 +31,9 @@ def remove_image(image_name, is_original=False):
         if os.path.isfile(image_path):
             os.remove(image_path)
 
+'''
+def download_video(url):
+    this_folder = os.path.dirname(os.path.abspath(__file__))
+    video = YouTube(url)
+    video.streams.first().download(this_folder + "videos/")
+'''

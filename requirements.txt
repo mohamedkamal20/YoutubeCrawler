@@ -21,3 +21,5 @@ tzlocal==2.1
 Werkzeug==1.0.1
 zipp==1.2.0
 
+
+requests~=2.25.1
