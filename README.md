@@ -31,7 +31,7 @@ This will install all the python packages which is required for this project to 
 `python run.py`
 ### Test services
 * Postman or curl command line\
-`/api/crawl_playlist?playlist_url={playlist URL} [POST]`
+`/api/crawl_playlist?playlist_url={playlist URL} [POST]`\
 `/api/crawl_channel?channel_url={channel URL} [POST]`
 ### Test against Database
 * Iam using flask_sqlalchemy you can use [sqlite browser](https://sqlitebrowser.org/dl/)
