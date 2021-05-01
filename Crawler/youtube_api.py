@@ -7,15 +7,14 @@ from Crawler.database import seed_playlist_videos_to_db, seed_channel_details_to
 
 scopes = ["https://www.googleapis.com/auth/youtube.readonly"]
 
+developer_key = "AIzaSyC1cdcjHN1QNdJo-7I7XTJysBMAtAiqrs0"
+api_service_name = "youtube"
+api_version = "v3"
+
 
 def get_playlist_videos(playlist_id, playlist_name="playlist", channel_id=None):
-    # Disable OAuthlib's HTTPS verification when running locally.
-    # *DO NOT* leave this option enabled in production.
-    os.environ["OAUTHLIB_INSECURE_TRANSPORT"] = "1"
 
-    api_service_name = "youtube"
-    api_version = "v3"
-    developer_key = "AIzaSyC1cdcjHN1QNdJo-7I7XTJysBMAtAiqrs0"
+    os.environ["OAUTHLIB_INSECURE_TRANSPORT"] = "1"
 
     youtube = googleapiclient.discovery.build(
         api_service_name, api_version, developerKey=developer_key)
@@ -47,13 +46,8 @@ def get_playlist_videos(playlist_id, playlist_name="playlist", channel_id=None):
 
 
 def get_channel_videos(channel_id):
-    # Disable OAuthlib's HTTPS verification when running locally.
-    # *DO NOT* leave this option enabled in production.
-    os.environ["OAUTHLIB_INSECURE_TRANSPORT"] = "1"
 
-    api_service_name = "youtube"
-    api_version = "v3"
-    developer_key = "AIzaSyC1cdcjHN1QNdJo-7I7XTJysBMAtAiqrs0"
+    os.environ["OAUTHLIB_INSECURE_TRANSPORT"] = "1"
 
     youtube = googleapiclient.discovery.build(
         api_service_name, api_version, developerKey=developer_key)

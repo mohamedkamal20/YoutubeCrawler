@@ -12,12 +12,11 @@ def save_image(url, is_original=False):
         image = open(os.path.join(this_folder, "images/original/{}.jpeg".format(image_name)), "wb")
         image.write(response.content)
         image.close()
-        return image_name
     else:
         image = open(os.path.join(this_folder, "images/thumbnail/{}.jpeg".format(image_name)), "wb")
         image.write(response.content)
         image.close()
-        return image_name
+    return image_name
 
 
 def remove_image(image_name, is_original=False):
