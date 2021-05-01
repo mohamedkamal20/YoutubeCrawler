@@ -1,0 +1,24 @@
+from flask import jsonify, request
+
+from Crawler import app
+from Crawler.youtube_api import get_playlist_videos, get_channel_videos
+
+
+@app.route('/api/crawl_playlist', methods=['POST'], strict_slashes=False)
+def get_playlist_details():
+
+    playlist_id = str(request.args.get('playlist_url').split('list=')[1])
+    videos_details = get_playlist_videos(playlist_id)
+
+    return jsonify({'playlist': videos_details})
+
+
+@app.route('/api/crawl_channel', methods=['POST'], strict_slashes=False)
+def get_channel_details():
+
+    channel_id = str(request.args.get('channel_url').split('/')[4])
+    videos_details = get_channel_videos(channel_id)
+
+    return jsonify({'channel': videos_details})
+
+
